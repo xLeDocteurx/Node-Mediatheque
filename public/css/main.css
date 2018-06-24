@@ -1,0 +1,16 @@
+html,
+body {
+  
+  height: 100%;
+}
+
+#newuser-button,
+#logged-button,
+#loggin-button,
+#loggin-page,
+#content_input,
+#content_button,
+#secret-link,
+#animation {
+  display: none;
+}
