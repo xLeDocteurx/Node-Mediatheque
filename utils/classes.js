@@ -1,28 +1,22 @@
-class user {
-  constructor(id, email, password, username) {
-    this.id = id;
-    this.email = email;
-    this.password = password;
-    this.username = username;
-  }
-}
+// let save = require("./json/save.json");
+let fs = require("fs");
 
-class post {
-  constructor(id, date, title, content, author, comments) {
-    this.id = id;
-    this.date = date;
-    this.title = title;
-    this.content = content;
-    this.author = author;
-    this.comments = [];
-  }
-}
+exports.Adherant = class {
 
-class com {
-    constructor (id, date, content, author) {
-        this.id = id;
-        this.date = date;
-        this.content = content;
-        this.author = author;
-    }
+  constructor (nom, prenom, age, mail, ville) {
+
+    let id = save.adherants[save.adherants.length - 1].id + 1;
+
+    this.id = id;
+    this.nom = nom;
+    this.prenom = prenom;
+    this.age = age;
+    this.mail = mail;
+    this.ville = ville;
+    
+  }
+
+  static something() {
+
+  }
 }

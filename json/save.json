@@ -1,0 +1,12 @@
+{
+    "adherants": [
+        {
+            "id": 0,
+            "nom": "Lenoir",
+            "prenom": "Christopher",
+            "age": 30,
+            "mail": "lenoirc.fr@gmail.com",
+            "ville": "Muret"
+        }
+    ]
+}

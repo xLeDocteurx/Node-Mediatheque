@@ -92,3 +92,72 @@ function register() {
   // };
   // socket.emit('register', user);
 }
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
+// VERIFICATION DES CHAMPS
+////////////////////////////////////////////////////
+
+
+
+
+
+
+function checkUsername(that) {
+  var input = that.value;
+
+  myDatas = JSON.parse(localStorage.getItem("json"));
+  var found = myDatas.users.find(element => {
+      return element.username == input;
+  });
+  if (found == null) {
+      console.log("input : " + input + " // toujours pas de match !");
+  } else {
+      console.log("input : " + input + " // Cet username est déja présent dans la base de donnés !");
+      var inputField = document.getElementById("username");
+      inputField.setAttribute("class", "form-control is-invalid");
+  }
+}
+//vérification du formulaire
+function checkIfFormIsOk() {
+  var form = document.forms.namedItem("user-form");
+
+  if (form.checkValidity()) {
+  console.log("si la fonction s'éxécute");
+      
+      var email = form.email.value;
+      form.password.type = "text";
+      var password = form.password.value;
+      var x = form.x.checked;
+      var y = form.y.checked;
+      var firstname = form.firstname.value;
+      var lastname = form.lastname.value;
+      var address = form.address.value;
+      var city = form.city.value;
+      var zip = form.zip.value;
+      var phone = form.phone.value;
+      var username = form.username.value;
+      var hobbies = form.hobbies.value;
+      var website = form.website.value;
+      var color = form.color.value;
+
+      var sex;
+      if (x == true) {
+          sex = "m";
+      } else if (y == true) {
+          sex = "f"
+      }
+
+      registerNewUser(username, password, firstname, lastname, sex, email, phone, address, city, website, color, hobbies);
+  } else {
+      console.log("Il y a des classes invalides //");
+  }
+}
