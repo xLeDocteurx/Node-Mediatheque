@@ -86,11 +86,11 @@ function register() {
       console.log("error : " + error.message);
     });
 
-  // let user = {
-  //     email : email,
-  //     username : username
-  // };
-  // socket.emit('register', user);
+  let user = {
+      email : email,
+      username : username
+  };
+  socket.emit('register', user);
 }
 
 

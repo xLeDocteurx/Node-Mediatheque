@@ -1,7 +1,18 @@
 html,
 body {
-  
   height: 100%;
+}
+
+header a {
+  color: #6c757d;
+}
+
+header a:hover {
+  color: #f8f9fa;
+}
+
+header a:active {
+  color: white;
 }
 
 #newuser-button,
@@ -15,6 +26,22 @@ body {
   display: none;
 }
 
-#searchbar {
+.searchbar {
   height: 30px;
+}
+/* 
+.thumb {
+  height: 50px;
+} */
+
+.card-header {
+  max-height: 70px;
+  overflow: hidden;
+}
+
+.card-text {
+  height: 150px;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -15,8 +15,4 @@ exports.Adherant = class {
     this.ville = ville;
     
   }
-
-  static something() {
-
-  }
 }

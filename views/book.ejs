@@ -21,17 +21,7 @@
                 </div>
                 <div id="books_results" class="row col-md-10">
 
-                    <div class="col-12">
-
-                        Vous avez recherché :
-                        <b>
-                            <%= searched %>
-                        </b>
-                    </div>
-                    <hr>
-                    <% body.items.forEach((item, index) => { %>
-                        <%- include('./elements/item', {item: item}); %>
-                            <% }); %>
+                    <%- include('./elements/item', {item: item}); %>
 
                 </div>
                 <div class="col-md-1"></div>

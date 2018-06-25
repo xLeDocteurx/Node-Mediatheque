@@ -5,19 +5,17 @@
         <nav class="navbar navbar-expand navbar-dark bg-dark p-0 m-0">
             <div class="d-flex justify-content-start mr-auto">
 
+                <a class="nav-link" href="/emprunts">Liste des emprunts</a>
 
-                <form id="searchbar" action="/books" method="post" class="d-flex justify-content-start">
-                    <b>Rechercher : </b>
+                <form action="/books" method="post" class="searchbar d-flex justify-content-start">
                     <input id="books_search_input" name="searched" class="form-control form-control-sm" type="search" placeholder="Titre ou Auteur">
-                    <button id="books_search_button" class="btn btn-sm" type="submit">Rechercher</button>
+                    <button id="books_search_button" class="btn btn-sm" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </form>
             </div>
 
             <div class="d-flex justify-content-end ml-auto">
-                <div class="nav-item mr-3">
-                    <a class="nav-link" href="/join">Join</a>
-                </div>
-
 
                 <div id="newuser-button" class="nav-item dropdown mr-3">
                     <a class="nav-link dropdown-toggle" href="#" id="navbar1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</a>
@@ -54,7 +52,7 @@
                 </div>
 
 
-                <div id="logged-button" class="nav-item mr-3 bg-secondary rounded">
+                <div id="logged-button" class="searchbar nav-item mr-3 my-2 bg-secondary rounded">
                     <button class="btn btn-sm btn-warning" onclick="logout();">
                         <i class="fas fa-times"></i>
                     </button>

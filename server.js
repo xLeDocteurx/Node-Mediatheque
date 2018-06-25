@@ -12,6 +12,7 @@ const webport = 8080;
 let { commit, listbooks } = require("./utils/utils.js");
 let { File } = require("./utils/classes.js");
 let save = require("./json/save.json");
+let users = require("./json/users.json");
 
 let app = express();
 app.set("view engine", "ejs");
@@ -25,47 +26,35 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/search", (req, res) => {
-  res.render("search");
-});
-
 app.post("/books", (req, res) => {
-
   let bookAPIKey = `AIzaSyBoN4VMET_fXCZJ5L5DSU-VR9hlIPNfc2o`;
   var searched = req.body.searched;
   let url = `https://www.googleapis.com/books/v1/volumes?q=${searched}`;
-  let data = { body: "", searched: searched };
 
   request.get(url, (error, response, body) => {
-    console.log("Le serveur a reçu une requete de recherche qui a étée envoyé à l'API");
-    console.log("L'utilisateur cherche : ");
-    // console.log(searched);
     // console.log(body);
-    data.body = body;
-    // listbooks(res, data);
-    console.log(data);
-    res.render("books", {body, searched});
+    body = JSON.parse(body);
+    res.render("books", { body, searched });
   });
-
 });
 
+app.get("/book", (req, res) => {
+  res.render("book");
+});
 
+app.get("/emprunts", (req, res) => {
+  res.render("emprunts");
+});
 
 app.get("/reserver", (req, res) => {
   res.render("reserver");
 });
 
-app.get("/join", (req, res) => {
-  res.render("join");
-});
-
 io.on("connection", socket => {
-  // console.log(`//////////////////////////////////////////////////////////////////////////////////////////`);
-  // console.log(`Un utilisateur non enregistré s'est connecté au serveur : ${socket.id}`);
-  // console.log(`//////////////////////////////////////////////////////////////////////////////////////////`);
-  // socket.on('disconnect', function () {
-  // console.log(`//////////////////////////////////////////////////////////////////////////////////////////`);
-  //     console.log(socket.id + ' // Got disconnect!');
-  // console.log(`//////////////////////////////////////////////////////////////////////////////////////////`);
-  // });
+
+
+  socket.on("register", user => {
+    users.push(user);
+    commit("users", users);
+  });
 });
