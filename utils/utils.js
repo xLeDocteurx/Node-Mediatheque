@@ -10,7 +10,6 @@ exports.commit = function (data) {
 };
 
 exports.listbooks = function(res, data) {
-  res.render('books', {
-    books: data.books
-  });
+  
+  res.render('books', data);
 };

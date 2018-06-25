@@ -14,3 +14,7 @@ body {
 #animation {
   display: none;
 }
+
+#searchbar {
+  height: 30px;
+}

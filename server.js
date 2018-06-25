@@ -25,21 +25,31 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/books", (req, res) => {
-  res.render("books");
+app.get("/search", (req, res) => {
+  res.render("search");
 });
 
-app.get("books/:searched", (req, res) => {
-  let bookAPIKey = `AIzaSyBoN4VMET_fXCZJ5L5DSU-VR9hlIPNfc2o`;
-  var searched = req.params.searched;
-  let url = `https://www.googleapis.com/books/v1/volumes?q=${searched}`;
+app.post("/books", (req, res) => {
 
-  let result;
+  let bookAPIKey = `AIzaSyBoN4VMET_fXCZJ5L5DSU-VR9hlIPNfc2o`;
+  var searched = req.body.searched;
+  let url = `https://www.googleapis.com/books/v1/volumes?q=${searched}`;
+  let data = { body: "", searched: searched };
+
   request.get(url, (error, response, body) => {
     console.log("Le serveur a reçu une requete de recherche qui a étée envoyé à l'API");
-    console.log(body);
+    console.log("L'utilisateur cherche : ");
+    // console.log(searched);
+    // console.log(body);
+    data.body = body;
+    // listbooks(res, data);
+    console.log(data);
+    res.render("books", {body, searched});
   });
+
 });
+
+
 
 app.get("/reserver", (req, res) => {
   res.render("reserver");
