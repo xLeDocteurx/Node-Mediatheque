@@ -19,8 +19,8 @@ const webport = 8080;
 let { commit, listbooks } = require("./utils/utils.js");
 let { File } = require("./utils/classes.js");
 let save = require("./json/save.json");
-let users = require("./json/users.json");
 
+let users = require("./json/users.json");
 let app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
