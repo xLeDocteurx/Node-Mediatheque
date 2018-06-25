@@ -2,18 +2,19 @@
     <%- include('./parts/header') %>
 
         <main class="container">
-
-            <div class="row">
-                <h4>Effectuer une recherche :</h4>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input id="books_search_input" class="form-control form-control-sm" type="search" placeholder="Titre ou Auteur">
+            <form action="/books" method="POST">
+                <div class="row">
+                    <h4>Effectuer une recherche :</h4>
                 </div>
-                <div class="col">
-                    <button id="books_search_button" class="btn btn-sm" onclick="books_search()">Rechercher</button>
+                <div class="row">
+                    <div class="col">
+                        <input id="books_search_input" class="form-control form-control-sm" type="search" placeholder="Titre ou Auteur">
+                    </div>
+                    <div class="col">
+                        <button id="books_search_button" class="btn btn-sm" type="submit">Rechercher</button>
+                    </div>
                 </div>
-            </div>
+            </form>
 
             <div id="dx" class="row mt-4">
                 <div class="col-md-1"></div>

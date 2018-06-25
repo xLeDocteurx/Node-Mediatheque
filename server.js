@@ -9,14 +9,9 @@ let request = require("request");
 // let https = require("https");
 
 const webport = 8080;
-let { commit } = require("./utils/utils.js");
+let { commit, listbooks } = require("./utils/utils.js");
 let { File } = require("./utils/classes.js");
 let save = require("./json/save.json");
-
-let bookAPIKey = `AIzaSyBoN4VMET_fXCZJ5L5DSU-VR9hlIPNfc2o`;
-let bookAPI = `https://www.googleapis.com/books/v1/volumes?q=search+terms`;
-
-
 
 let app = express();
 app.set("view engine", "ejs");
@@ -32,6 +27,18 @@ app.get("/", (req, res) => {
 
 app.get("/books", (req, res) => {
   res.render("books");
+});
+
+app.get("books/:searched", (req, res) => {
+  let bookAPIKey = `AIzaSyBoN4VMET_fXCZJ5L5DSU-VR9hlIPNfc2o`;
+  var searched = req.params.searched;
+  let url = `https://www.googleapis.com/books/v1/volumes?q=${searched}`;
+
+  let result;
+  request.get(url, (error, response, body) => {
+    console.log("Le serveur a reçu une requete de recherche qui a étée envoyé à l'API");
+    console.log(body);
+  });
 });
 
 app.get("/reserver", (req, res) => {

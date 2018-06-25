@@ -8,3 +8,9 @@ exports.commit = function (data) {
     console.log('JSON successfully modified!');
   });
 };
+
+exports.listbooks = function(res, data) {
+  res.render('books', {
+    books: data.books
+  });
+};
