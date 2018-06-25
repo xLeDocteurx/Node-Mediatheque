@@ -6,7 +6,14 @@ let moment = require("moment");
 let fs = require("fs");
 let http = require("http");
 let request = require("request");
-// let https = require("https");
+const sqlite3 = require('sqlite3').verbose();
+
+let db = new sqlite3.Database('./mediatek', sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+      console.error(err.message);
+  }
+  console.log('Connected to blog database.');
+});
 
 const webport = 8080;
 let { commit, listbooks } = require("./utils/utils.js");
